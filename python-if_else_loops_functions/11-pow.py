@@ -1,4 +1,4 @@
-#!/usr/bin/    result = 1
+#!/usr/bin/python3
 
 def pow(a, b):
     if b == 0:
@@ -12,4 +12,4 @@ def pow(a, b):
     for _ in range(b):
         result *= a
 
-    return result
+    return resultt
