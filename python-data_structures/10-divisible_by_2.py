@@ -2,7 +2,7 @@
 
 
 def divisible_by_2(my_list=[]):
-    if not my_list:  # Check if the list is empty
+    if not my_list:y
         return None
 
     result_list = []
@@ -12,5 +12,4 @@ def divisible_by_2(my_list=[]):
             result_list.append(True)
         else:
             result_list.append(False)
- 
     return result_list
