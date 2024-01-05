@@ -1,12 +1,16 @@
 #!/usr/bin/python3
 
 
-def add_tuple(tuple_a=(), tuple_b=()):
-    # Extend both tuples to be of length 2
-    tuple_a += (0, 0)
-    tuple_b += (0, 0)
+def divisible_by_2(my_list=[]):
+    if not my_list:  # Check if the list is empty
+        return None
 
-    # Add the corresponding elements of the tuples
-    new_tuple = (tuple_a[0] + tuple_b[0], tuple_a[1] + tuple_b[1])
+    result_list = []
 
-    return new_tuple
+    for i in my_list:
+        if i % 2 == 0:
+            result_list.append(True)
+        else:
+            result_list.append(False)
+    
+    return result_list
