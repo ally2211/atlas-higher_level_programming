@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 
 
-def add_tuple(tuple_a=(), tuple_b=()):
-    # Extend both tuples to be of length 2
-    tuple_a += (0, 0)
-    tuple_b += (0, 0)
+def max_integer(my_list=[]):
+    if not my_list:  # Check if the list is empty
+        return None
+    
+    max_value = my_list[0]
 
-    # Add the corresponding elements of the tuples
-    new_tuple = (tuple_a[0] + tuple_b[0], tuple_a[1] + tuple_b[1])
-
-    return new_tuple
+    for i in my_list:
+        if i > max_value:
+            max_value = i
+    return max_value
