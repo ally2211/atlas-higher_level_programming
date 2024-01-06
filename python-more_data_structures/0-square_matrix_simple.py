@@ -4,9 +4,9 @@
 def square_matrix_simple(matrix=[]):
     if not matrix:
         return None
-    
+
     new_matrix = []
-    for row  in matrix:
+    for row in matrix:
         new_row = []
         for element in row:
             new_row.append(element ** 2)
