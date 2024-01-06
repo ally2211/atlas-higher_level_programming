@@ -12,5 +12,3 @@ def uniq_add(my_list=[]):
             sumelement += element
             hold.append(element)
     return sumelement
-
-        
