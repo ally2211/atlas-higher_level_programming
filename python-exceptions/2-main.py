@@ -14,3 +14,8 @@ print("nb_print: {:d}".format(nb_print))
 nb_print = safe_print_list_integers(my_list, len(my_list) + 2)
 print("nb_print: {:d}".format(nb_print))
 
+
+my_list = [1, 2, 3, 4]
+x = len(my_list) + 4
+nb_print = safe_print_list_integers(my_list, x)
+print("{:d}".format(nb_print))
