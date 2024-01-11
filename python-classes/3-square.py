@@ -30,5 +30,5 @@ class Square:
         return self.__size * self.__size
 
 
-if __name__ == '__main__':
+if __name__ == '__main__'
     Square()
