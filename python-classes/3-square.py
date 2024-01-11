@@ -6,10 +6,10 @@ It has a mismatched attribute of size.
 
 
 class Square:
-"""
-Class documentation:  this class initializes instance of size
-but mismatches with __size
-"""
+    """
+    Class documentation:  this class initializes instance of size
+    but mismatches with __size
+    """
 
     def __init__(self, size=0):
         """
