@@ -10,6 +10,7 @@ class Square:
     Class documentation:  this class initializes instance of size
     but mismatches with __size
     """
+
     def __init__(self, size=0):
         """
         Initialize the sqaure instance.o some tests - valueError and Type Error
@@ -29,5 +30,5 @@ class Square:
         return self.__size * self.__size
 
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     Square()
