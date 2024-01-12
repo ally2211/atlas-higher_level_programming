@@ -37,8 +37,7 @@ class Square:
         """
         setter for position with value and type setting
         """
-        # check if int
-                # Check for if value is a Tuple
+        # Check for if value is a Tuple
         if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
         # Check if have exactly 2 items in Tuple
