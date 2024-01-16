@@ -26,7 +26,7 @@ class Rectangle:
         Getter for the print symbol. Returns the instance-specific
         """
         if self.__instance_print_symbol is not None:
-            return self.__instance_print_symbol 
+            return self.__instance_print_symbol
         else:
             return Rectangle._print_symbol
 
@@ -108,17 +108,12 @@ class Rectangle:
             symbol = str(symbol)
             # Convert to string in case it's not
 
-        rectangle_str = (symbol * self.__width + "\n") * (self.__height - 1) + symbol * self.__width
-        return rectangle_str
-
-        """
+        rectangle_str = ''
         for i in range(self.__height):
             for j in range(self.__width):
-                rectangle_str += Rectangle.print_symbol
-            if i < self.__height - 1:
-                rectangle_str += "\n"
-            return rectangle_str
-        """
+                rectangle_str += symbol
+            rectangle_str += "\n"
+        return rectangle_str
 
     def __repr__(self):
         """
