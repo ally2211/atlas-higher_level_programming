@@ -3,6 +3,7 @@
 Module doc:  empty rectangle
 """
 
+
 class Rectangle:
     """
     class doc:  empty class
