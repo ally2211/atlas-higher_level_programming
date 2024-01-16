@@ -9,7 +9,7 @@ class Rectangle:
     A class to represent a rectangle
     """
     number_of_instances = 0
-    print_symbol = "#"
+    _print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -18,6 +18,31 @@ class Rectangle:
         self.__width = width
         self.__height = height
         Rectangle.number_of_instances += 1
+        self.__instance_print_symbol = None
+
+    @property
+    def print_symbol(self):
+        """
+        Getter for the print symbol. Returns the instance-specific
+        """
+        if self.__instance_print_symbol is not None:
+            return self.__instance_print_symbol 
+        else:
+            return Rectangle._print_symbol
+
+    @print_symbol.setter
+    def print_symbol(self, value):
+        """
+        Setter for the print symbol. Sets the instance-specific print symbol.
+        """
+        self.__instance_print_symbol = value
+
+    @classmethod
+    def set_default_print_symbol(cls, value):
+        """
+        Class method to set the class-wide default print symbol.
+        """
+        cls._print_symbol = value
 
     @property
     def width(self):
@@ -74,13 +99,26 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        rectangle_str = ""
+        # Check for an instance-specific print symbol
+        symbol = getattr(self, 'print_symbol', Rectangle._print_symbol)
+        if isinstance(Rectangle.print_symbol, list):
+            symbol = ''.join(symbol)
+            # Join list elements into a single string
+        else:
+            symbol = str(symbol)
+            # Convert to string in case it's not
+
+        rectangle_str = (symbol * self.__width + "\n") * (self.__height - 1) + symbol * self.__width
+        return rectangle_str
+
+        """
         for i in range(self.__height):
             for j in range(self.__width):
                 rectangle_str += Rectangle.print_symbol
             if i < self.__height - 1:
                 rectangle_str += "\n"
-        return rectangle_str
+            return rectangle_str
+        """
 
     def __repr__(self):
         """
