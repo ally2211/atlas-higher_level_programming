@@ -112,7 +112,7 @@ class Rectangle:
         for i in range(self.__height):
             for j in range(self.__width):
                 rectangle_str += symbol
-            if i < self.__height -1:
+            if i < self.__height - 1:
                 rectangle_str += "\n"
         return rectangle_str
 
