@@ -1,8 +1,16 @@
 #!/usr/bin/python3
-
+"""
+a module to represent a rectangle
+"""
 
 class Rectangle:
+    """
+    A class to represent a rectangle
+    """
     def __init__(self, width=0, height=0):
+        """
+        constructor for rectangle class
+        """
         self.__width = width
         self.__height = height
 
