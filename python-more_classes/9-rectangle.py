@@ -15,6 +15,10 @@ class Rectangle:
         """
         constructor for rectangle class
         """
+        if not isinstance(width, int) or not isinstance(height, int):
+            raise TypeError("width and height must be integers")
+        if width < 0 or height < 0:
+            raise ValueError("width and height must be >= 0")
         self.__width = width
         self.__height = height
         Rectangle.number_of_instances += 1
@@ -53,7 +57,9 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if size < 0:
             raise ValueError("width must be >= 0")
-        return cls(size, size)
+        square_instance = cls(size, size)
+        print(f"Created a square with size {size}")
+        return square_instance
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -150,5 +156,5 @@ class Rectangle:
         """
         Destructor for the Rectangle class.
         """
-        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
