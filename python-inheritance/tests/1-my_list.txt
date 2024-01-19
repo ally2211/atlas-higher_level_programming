@@ -9,3 +9,7 @@
 >>> my_instance = my_list([3, 1, 2])
 >>> print(my_instance)
 [3, 1, 2]
+>>> my_instance = my_list([1, 2, 3])
+>>> my_instance.append(4)
+>>> print(my_instance)
+[1, 2, 3, 4]
