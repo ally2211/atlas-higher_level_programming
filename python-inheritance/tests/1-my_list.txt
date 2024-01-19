@@ -6,3 +6,6 @@
 >>> my_instance = my_list([3, 1, 2])
 >>> my_instance.print_sorted()
 [1, 2, 3]
+>>> my_instance = my_list([3, 1, 2])
+>>> print(my_instance)
+[1, 2, 3]
