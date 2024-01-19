@@ -21,6 +21,6 @@ class MyList(list):
 
         sorted_list = sorted(self)
         print(sorted_list)
-   
+
     def __str__(self):
         return list.__str__(self)
