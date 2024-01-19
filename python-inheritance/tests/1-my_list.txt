@@ -1,5 +1,6 @@
->>> print_sorted = __import__('1-my_list').print_sorted
+>>> my_list = __import__('1-my_list').MyList
+>>> my_list.print_sorted([3, 1, 2])
+[1, 2, 3]
 
->>> print_sorted(1, 23.3, "two", 2)
-Traceback (most recent call last):
-TypeError: arg must be an integer
+>>> my_list.print_sorted([1, 4, 2, 3, 5])
+[1, 2, 3, 4, 5]
