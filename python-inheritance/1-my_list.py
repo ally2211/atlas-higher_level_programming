@@ -18,9 +18,9 @@ class MyList(list):
                 isinstance(i, int)
             except (TypeError):
                 raise TypeError
-       
+
         sorted_list = sorted(self)
         print(sorted_list)
-        
+   
     def __str__(self):
         return list.__str__(self)
