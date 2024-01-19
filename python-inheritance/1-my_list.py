@@ -13,8 +13,6 @@ class MyList(list):
         """
         Return a string representation of the sorted list
         """
-        if len(self) == 0
-            return []
         for i in range(len(self)):
             try:
                 isinstance(i, int)
