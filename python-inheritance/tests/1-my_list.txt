@@ -8,4 +8,4 @@
 [1, 2, 3]
 >>> my_instance = my_list([3, 1, 2])
 >>> print(my_instance)
-[1, 2, 3]
+[3, 1, 2]

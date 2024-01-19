@@ -23,4 +23,4 @@ class MyList(list):
         print(sorted_list)
         
     def __str__(self):
-        return str(sorted(self))
+        return list.__str__(self)
