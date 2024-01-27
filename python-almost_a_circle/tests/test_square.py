@@ -61,6 +61,17 @@ class TestSquare(TestRectangle):
         with self.assertRaises(ValueError):
             Square(1, 2, -3) 
 
+    def test_square_zero(self):
+        """Test that passing zero size."""
+        with self.assertRaises(ValueError):
+            Square(0) 
+
+    def test_str_method(self):
+        """Test the string representation of a Rectangle instance."""
+        square = Square(2, 1, 1, 123)  # Create a Square instance
+        expected_str = '[Square] (123) 1/1 - 2'
+        self.assertEqual(square.__str__(), expected_str)
+
     def test_square_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Square(10, 2, 3, 1)
