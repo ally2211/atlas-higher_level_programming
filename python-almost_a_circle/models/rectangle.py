@@ -43,8 +43,8 @@ class Rectangle(Base):
         """
         overriding ___str___ method
         """
-        return '[Rectangle] ({}) {}/{} - {}/{}'.format
-        (self.id, self.x, self.y, self.width, self.height)
+        return ('[Rectangle] ({}) {}/{} - {}/{}'
+                .format(self.id, self.x, self.y, self.width, self.height))
 
     @property
     def width(self):
