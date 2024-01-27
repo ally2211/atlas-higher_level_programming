@@ -50,3 +50,12 @@ class Base:
         if json_string is None or json_string == "":
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Factory method to create a new Rectangle instance"""
+        # Creating a dummy instance with default values
+        dummy_instance = cls(0, 0)  # default values
+        # Updating dummy instance with actual values from dictionary
+        dummy_instance.update(**dictionary)
+        return dummy_instance

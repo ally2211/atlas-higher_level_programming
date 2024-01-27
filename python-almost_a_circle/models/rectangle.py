@@ -23,12 +23,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-
-    @classmethod
-    def create(cls, **kwargs):
-        """Factory method to create a new Rectangle instance"""
-        return cls(**kwargs)
-    
+   
     def area(self):
         """
         calculate area of rectangle
