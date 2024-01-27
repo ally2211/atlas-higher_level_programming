@@ -30,6 +30,15 @@ class Rectangle(Base):
         """
         return self.width * self.height
 
+    def display(self):
+        """
+        print # for rectangle
+        """
+        for i in range(self.height):
+            for j in range(self.width):
+                print('#', end='')
+            print()  # Newline after each row
+
     @property
     def width(self):
         """int: Gets or sets the width of the rectangle."""

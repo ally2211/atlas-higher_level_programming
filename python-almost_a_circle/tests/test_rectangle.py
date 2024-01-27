@@ -80,6 +80,17 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(10, 5)
         self.assertEqual(rect.area(), 50)
     
+    def test_display_output(self):
+        """Test the visual output of the display method."""
+        rect = Rectangle(3, 2)
+        expected_output = "###\n###\n"
+
+        capturedOutput = StringIO()          # Create StringIO object
+        sys.stdout = capturedOutput          # Redirect stdout
+        rect.display()                       # Call the display method
+        sys.stdout = sys.__stdout__          # Reset redirect
+        self.assertEqual(capturedOutput.getvalue(), expected_output)
+    
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)
