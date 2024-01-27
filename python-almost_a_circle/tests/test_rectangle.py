@@ -1,4 +1,6 @@
 import unittest
+from io import StringIO
+import sys
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -85,6 +87,23 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(3, 2, 1, 1, 123)  # Create a Rectangle instance
         expected_str = '[Rectangle] (123) 1/1 - 3/2'
         self.assertEqual(rect.__str__(), expected_str)
+        
+    def setUp(self):
+        """Redirect stdout to capture print statements."""
+        self.capturedOutput = StringIO()
+        sys.stdout = self.capturedOutput
+
+    def tearDown(self):
+        """Reset stdout to default."""
+        sys.stdout = sys.__stdout__
+
+    def test_display_method(self):
+        """Test the visual output of the display method with x and y offsets."""
+        rect = Rectangle(3, 2, 1, 2)  # width=3, height=2, x=1, y=2
+        expected_output = "\n\n ###\n ###\n"  # Considering the newline and space offsets
+
+        rect.display()
+        self.assertEqual(self.capturedOutput.getvalue(), expected_output)
 
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
