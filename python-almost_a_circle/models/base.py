@@ -3,6 +3,7 @@
 Module Doc: Base Class for all other classes
 """
 import json
+import os
 
 
 class Base:
@@ -23,6 +24,20 @@ class Base:
             Base.__nb_objects += 1
             # Assign the incremented value to the public instance attribute
             self.id = Base.__nb_objects
+
+    @classmethod
+    def load_from_file(cls):
+        filename = f"{cls.__name__}.json"
+        if not os.path.exists(filename):
+            return []
+        with open(filename, 'r') as file:
+            json_string = file.read()
+        list_of_dicts = cls.from_json_string(json_string)
+        instances = []
+        for d in list_of_dicts:
+            instance = cls.create(**d)
+            instances.append(instance)
+        return instances
 
     @staticmethod
     def to_json_string(list_dictionaries):
