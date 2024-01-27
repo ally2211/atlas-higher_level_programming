@@ -22,7 +22,29 @@ class TestRectangle(unittest.TestCase):
         """Test that passing a non-integer height."""
         with self.assertRaises(TypeError):
             Rectangle(1, "2")
+            
+    def test_invalid_init_x(self):
+        """Test that initializing with invalid x."""
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, x=-1, y=0)
 
+    def test_invalid_init_y(self):
+        """Test that initializing with invalid y."""
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, x=0, y=-1)
+
+    def test_invalid_set_x(self):
+        """Test that setting x to an invalid value."""
+        rect = Rectangle(1, 2)
+        with self.assertRaises(ValueError):
+            rect.x = -1
+
+    def test_invalid_set_y(self):
+        """Test that setting y to an invalid value."""
+        rect = Rectangle(1, 2)
+        with self.assertRaises(ValueError):
+            rect.y = -1
+    
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)
