@@ -4,7 +4,7 @@ import sys
 from models.base import Base
 from models.square import Square
 
-class TestSquare(unittest.TestCase):
+class TestSquare(TestRectangle):
     """Unit tests for the Square class."""
     
     def test_square_existence(self):
