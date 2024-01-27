@@ -5,6 +5,14 @@ from models.rectangle import Rectangle
 class TestRectangle(unittest.TestCase):
     """Unit tests for the Rectangle class."""
 
+    def test_rectangle_existence(self):
+        """Test that a Rectangle with width=1 and height=2 exists and has correct attributes."""
+        rect = Rectangle(1, 2)  
+        # Assuming default values for x, y, and id are acceptable
+        self.assertIsNotNone(rect, "Rectangle instance should not be None")
+        self.assertEqual(rect.width, 1, "Rectangle width should be 1")
+        self.assertEqual(rect.height, 2, "Rectangle height should be 2")
+
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)
