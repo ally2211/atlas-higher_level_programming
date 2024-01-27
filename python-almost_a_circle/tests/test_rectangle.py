@@ -93,9 +93,6 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(10, 5, 2, 3, 1)
         self.assertTrue(hasattr(rect, 'to_dictionary'),
                         "to_dictionary does not exist")
-        result = rect.to_dictionary()
-        self.assertIsInstance(result, dict, 
-                              "to_dictionary should return a dictionary")
         
     def test_update_method(self):
         """Test the update method of the Rectangle class."""

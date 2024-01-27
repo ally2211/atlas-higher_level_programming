@@ -26,6 +26,7 @@ class TestBase(unittest.TestCase):
         Base._Base__nb_objects = 0  # Resetting for consistent testing
         obj = Base(None)
         self.assertEqual(obj.id, 1)
+
         
 if __name__ == '__main__':
     unittest.main()
