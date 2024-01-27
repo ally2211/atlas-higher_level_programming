@@ -93,6 +93,11 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(10, 5, 2, 3, 1)
         self.assertTrue(hasattr(rect, 'to_dictionary'),
                         "to_dictionary does not exist")
+  
+    def test_save_to_file_with_none(self):
+        """Test save_to_file method with None as argument raises ValueError."""
+        with self.assertRaises(ValueError):
+            Rectangle.save_to_file(None)
         
     def test_update_method(self):
         """Test the update method of the Rectangle class."""
