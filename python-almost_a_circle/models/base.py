@@ -2,7 +2,7 @@
 """
 Module Doc: Base Class for all other classes
 """
-
+import json
 
 class Base:
     """
@@ -22,3 +22,10 @@ class Base:
             Base.__nb_objects += 1
             # Assign the incremented value to the public instance attribute
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Return the JSON string representation of list_dictionaries."""
+        if list_dictionaries is None or not list_dictionaries:
+            return "[]"
+        return json.dumps(list_dictionaries)
