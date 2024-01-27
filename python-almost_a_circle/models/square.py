@@ -23,6 +23,15 @@ class Square(Rectangle):
         """Factory method to create a new Square instance"""
         return cls(**kwargs)
 
+    def to_dictionary(self):
+        """Return the dictionary representation of the Square."""
+        return {
+            'id': self.id,
+            'size': self.width,
+            'x': self.x,
+            'y': self.y
+        }
+
     def __str__(self):
         """
         Override the __str__ of the Square.

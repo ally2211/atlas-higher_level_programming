@@ -87,6 +87,15 @@ class TestRectangle(unittest.TestCase):
         rect = Rectangle(3, 2, 1, 1, 123)  # Create a Rectangle instance
         expected_str = '[Rectangle] (123) 1/1 - 3/2'
         self.assertEqual(rect.__str__(), expected_str)
+    
+    def test_to_dictionary_exists(self):
+        """Test that the to_dictionary method exists."""
+        rect = Rectangle(10, 5, 2, 3, 1)
+        self.assertTrue(hasattr(rect, 'to_dictionary'),
+                        "to_dictionary does not exist")
+        result = rect.to_dictionary()
+        self.assertIsInstance(result, dict, 
+                              "to_dictionary should return a dictionary")
         
     def test_update_method(self):
         """Test the update method of the Rectangle class."""

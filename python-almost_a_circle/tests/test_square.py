@@ -81,6 +81,14 @@ class TestSquare(TestRectangle):
         self.assertEqual(square.x, 2, "The x- should be updated to 2")
         self.assertEqual(square.y, 3, "The y- should be updated to 3")
 
+    def test_to_dictionary_exists(self):
+        """Test that the to_dictionary method exists."""
+        square = Square(10, 2, 3, 1)
+        self.assertTrue(hasattr(square, 'to_dictionary'),
+                        "to_dictionary does not exist")
+        result = square.to_dictionary()
+        self.assertIsInstance(result, dict, 
+                              "to_dictionary should return a dictionary")
 
     def test_square_creation(self):
         """Test creating a rectangle and accessing its attributes."""
