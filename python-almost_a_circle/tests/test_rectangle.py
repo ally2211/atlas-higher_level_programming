@@ -105,6 +105,24 @@ class TestRectangle(unittest.TestCase):
         rect.display()
         self.assertEqual(self.capturedOutput.getvalue(), expected_output)
 
+    def test_display_method_no_offset(self):
+        """Test the visual output of the display method without x and y offsets."""
+        width, height = 3, 2
+        rect = Rectangle(width, height)  # No x and y offsets provided
+        expected_output = ("#" * width + "\n") * height
+
+        rect.display()
+        self.assertEqual(self.capturedOutput.getvalue(), expected_output)
+
+    def test_display_method_no_y_offset(self):
+        """Test the visual output of the display method without x and y offsets."""
+        width, height, x = 3, 2, 2
+        rect = Rectangle(width, height, x)
+        expected_output = (" " * x + "#" * width + "\n") * height
+
+        rect.display()
+        self.assertEqual(self.capturedOutput.getvalue(), expected_output)
+
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)

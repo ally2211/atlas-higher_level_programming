@@ -49,7 +49,6 @@ class Rectangle(Base):
         return ('[Rectangle] ({}) {}/{} - {}/{}'
                 .format(self.id, self.x, self.y, self.width, self.height))
 
-
     @property
     def width(self):
         """int: Gets or sets the width of the rectangle."""
