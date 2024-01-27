@@ -13,6 +13,16 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rect.width, 1, "Rectangle width should be 1")
         self.assertEqual(rect.height, 2, "Rectangle height should be 2")
 
+    def test_non_integer_width(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+
+    def test_non_integer_height(self):
+        """Test that passing a non-integer height."""
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)
