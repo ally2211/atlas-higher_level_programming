@@ -1,8 +1,11 @@
 import unittest
 from io import StringIO
+import os
+import json
 import sys
 from models.base import Base
 from models.rectangle import Rectangle
+
 
 class TestRectangle(unittest.TestCase):
     """Unit tests for the Rectangle class."""
@@ -103,7 +106,24 @@ class TestRectangle(unittest.TestCase):
         """Test save_to_file method with None as argument raises ValueError."""
         with self.assertRaises(ValueError):
             Rectangle.save_to_file([])
-        
+
+    def test_save_to_file_single_rectangle(self):
+        """Test save_to_file with a single Rectangle instance."""
+        rect = Rectangle(1, 2)
+        Rectangle.save_to_file([rect])
+        filename = f"{Rectangle.__name__}.json"
+        self.assertTrue(os.path.exists(filename))
+
+        with open(filename, 'r') as file:
+            contents = file.read()
+            data = json.loads(contents)
+            expected = [rect.to_dictionary()]
+            self.assertEqual(data, expected)
+
+        # Clean up: Remove the file after test
+        if os.path.exists(filename):
+            os.remove(filename)
+    
     def test_update_method(self):
         """Test the update method of the Rectangle class."""
         rectangle = Rectangle(5, 5)
