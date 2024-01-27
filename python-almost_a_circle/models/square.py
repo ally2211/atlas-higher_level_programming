@@ -25,6 +25,24 @@ class Square(Rectangle):
         return ('[Square] ({}) {}/{} - {}'
                 .format(self.id, self.x, self.y, self.size))
 
+    def update(self, *args, **kwargs):
+        """
+        Update the attributes of the Rectangle instance using args and kwargs.
+        Args order is id, width, height, x, y.
+        """
+        attrs = ['id', 'width', 'height', 'x', 'y']
+
+        if args:
+            # Update attributes based on args order
+            for attr, value in zip(attrs, args):
+                if hasattr(self, attr):
+                    setattr(self, attr, value)
+        else:
+            # Update attributes based on kwargs
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+
     @property
     def size(self):
         """int: Gets or sets the size of the square."""

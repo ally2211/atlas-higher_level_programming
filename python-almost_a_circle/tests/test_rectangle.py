@@ -88,6 +88,16 @@ class TestRectangle(unittest.TestCase):
         expected_str = '[Rectangle] (123) 1/1 - 3/2'
         self.assertEqual(rect.__str__(), expected_str)
         
+    def test_update_method(self):
+        """Test the update method of the Rectangle class."""
+        rectangle = Rectangle(5, 5)
+        rectangle.update(width=10, height=2, x=2, y=3)
+
+        self.assertEqual(rectangle.width, 10, "The width updated to 10")
+        self.assertEqual(rectangle.height, 2, "The height updated to 2")
+        self.assertEqual(rectangle.x, 2, "The x should be updated to 2")
+        self.assertEqual(rectangle.y, 3, "The y should be updated to 3")
+        
     def setUp(self):
         """Redirect stdout to capture print statements."""
         self.capturedOutput = StringIO()

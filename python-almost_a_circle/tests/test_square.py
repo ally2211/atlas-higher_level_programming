@@ -71,6 +71,16 @@ class TestSquare(TestRectangle):
         square = Square(2, 1, 1, 123)  # Create a Square instance
         expected_str = '[Square] (123) 1/1 - 2'
         self.assertEqual(square.__str__(), expected_str)
+        
+    def test_update_method(self):
+        """Test the update method of the Square class."""
+        square = Square(5)
+        square.update(size=10, x=2, y=3)
+
+        self.assertEqual(square.size, 10, "The side should be updated to 10")
+        self.assertEqual(square.x, 2, "The x- should be updated to 2")
+        self.assertEqual(square.y, 3, "The y- should be updated to 3")
+
 
     def test_square_creation(self):
         """Test creating a rectangle and accessing its attributes."""
