@@ -106,7 +106,7 @@ class TestSquare(TestRectangle):
 
     def test_to_dictionary_exists(self):
         """Test that the to_dictionary method exists in Square."""
-        square = Square(5, 10, 15, 1)  # Example instantiation, adjust as needed
+        square = Square(2, 1, 1, 123)
         self.assertTrue(hasattr(square, 'to_dictionary'), "to_dictionary method does not exist")
 
     def test_save_to_file_with_none(self):

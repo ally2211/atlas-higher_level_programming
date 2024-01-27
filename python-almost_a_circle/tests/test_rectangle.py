@@ -87,13 +87,13 @@ class TestRectangle(unittest.TestCase):
 
     def test_str_method(self):
         """Test the string representation of a Rectangle instance."""
-        rect = Rectangle(3, 2, 1, 1, 123)  # Create a Rectangle instance
+        rect = Rectangle(3, 2, 1, 1, 123)
         expected_str = '[Rectangle] (123) 1/1 - 3/2'
         self.assertEqual(rect.__str__(), expected_str)
     
     def test_to_dictionary_exists(self):
         """Test that the to_dictionary method exists."""
-        rect = Rectangle(10, 5, 2, 3, 1)
+        rect = Rectangle(3, 2, 1, 1, 123)
         self.assertTrue(hasattr(rect, 'to_dictionary'),"to_dictionary does not exist")
   
     def test_save_to_file_with_none(self):
