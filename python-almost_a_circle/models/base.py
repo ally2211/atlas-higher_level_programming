@@ -49,8 +49,8 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Write the JSON string representation of list_objs to a file."""
-        if list_objs is None:
-            raise ValueError("list_objs cannot be None")
+        if list_objs is None or list_objs is []:
+            raise ValueError("list_objs cannot be None or empty")
         list_dictionaries = []
         if list_objs:
             for obj in list_objs:

@@ -98,6 +98,11 @@ class TestRectangle(unittest.TestCase):
         """Test save_to_file method with None as argument raises ValueError."""
         with self.assertRaises(ValueError):
             Rectangle.save_to_file(None)
+
+    def test_save_to_file_with_empty(self):
+        """Test save_to_file method with None as argument raises ValueError."""
+        with self.assertRaises(ValueError):
+            Rectangle.save_to_file([])
         
     def test_update_method(self):
         """Test the update method of the Rectangle class."""
