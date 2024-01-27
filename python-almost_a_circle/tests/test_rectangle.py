@@ -111,10 +111,50 @@ class TestRectangle(unittest.TestCase):
             'x': 2,
             'y': 3
         }
-        
+
         # Call to_dictionary and compare with expected
         self.assertEqual(rect.to_dictionary(), expected_dict, 
                          "does not return correct dictionary representation")
+
+    def test_create_method_with_kwargs(self):
+        """Test the create method with keyword arguments."""
+        # Create a Rectangle instance using the create method
+        rect = Rectangle.create(id=89)
+
+        # Check if the id is set correctly
+        self.assertEqual(rect.id, 89, "The id should be set to 89")
+
+    def test_create_method_with_kwargs2(self):
+        """Test the create method with specific keyword arguments."""
+        # Create a Rectangle instance using the create method with kwargs
+        rect = Rectangle.create(**{'id': 89, 'width': 1})
+
+        # Check if the properties are set correctly
+        self.assertEqual(rect.id, 89, "The id should be set to 89")
+        self.assertEqual(rect.width, 1, "The width should be set to 1")
+
+    def test_create_method_with_multiple_kwargs(self):
+        """Test the create method with multiple keyword arguments."""
+        # Create a Rectangle instance using the create method with kwargs
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
+
+        # Check if the properties are set correctly
+        self.assertEqual(rect.id, 89, "The id should be set to 89")
+        self.assertEqual(rect.width, 1, "The width should be set to 1")
+        self.assertEqual(rect.height, 2, "The height should be set to 2")
+        self.assertEqual(rect.x, 3, "The x position should be set to 3")
+
+    def test_create_method_with_full_kwargs(self):
+        """Test the create method with a full set of keyword arguments."""
+        # Create a Rectangle instance using the create method with kwargs
+        rect = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+
+        # Check if the properties are set correctly
+        self.assertEqual(rect.id, 89, "The id should be set to 89")
+        self.assertEqual(rect.width, 1, "The width should be set to 1")
+        self.assertEqual(rect.height, 2, "The height should be set to 2")
+        self.assertEqual(rect.x, 3, "The x position should be set to 3")
+        self.assertEqual(rect.y, 4, "The y position should be set to 4")
 
     def setUp(self):
         """Redirect stdout to capture print statements."""
