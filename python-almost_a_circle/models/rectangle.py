@@ -34,10 +34,13 @@ class Rectangle(Base):
         """
         print # for rectangle
         """
-        for i in range(self.height):
-            for j in range(self.width):
-                print('#', end='')
-            print()  # Newline after each row
+        # Print the y offset (vertical space)
+        print("\n" * self.y, end="")
+
+        # Print each row of the rectangle
+        for row in range(self.height):
+            # Print the x offset
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """
@@ -45,6 +48,7 @@ class Rectangle(Base):
         """
         return ('[Rectangle] ({}) {}/{} - {}/{}'
                 .format(self.id, self.x, self.y, self.width, self.height))
+
 
     @property
     def width(self):
