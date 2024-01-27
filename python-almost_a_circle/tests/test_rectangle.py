@@ -42,6 +42,16 @@ class TestRectangle(unittest.TestCase):
         """Test that initializing with invalid x."""
         with self.assertRaises(ValueError):
             Rectangle(1, -2, x=1, y=0)
+            
+    def test_invalid_init_width(self):
+        """Test that initializing with invalid x."""
+        with self.assertRaises(ValueError):
+            Rectangle(0, 2)
+
+    def test_invalid_init_width(self):
+        """Test that initializing with invalid x."""
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
 
     def test_invalid_init_x(self):
         """Test that initializing with invalid x."""
