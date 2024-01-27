@@ -123,6 +123,16 @@ class TestRectangle(unittest.TestCase):
         # Clean up: Remove the file after test
         if os.path.exists(filename):
             os.remove(filename)
+
+    def test_load_from_file_no_file(self):
+        """Test load_from_file raises an error when the file does not exist."""
+        # Ensure the file does not exist
+        filename = f"{Rectangle.__name__}.json"
+        if os.path.exists(filename):
+            os.remove(filename)
+
+        result = Rectangle.load_from_file()
+        self.assertEqual(result, [])
     
     def test_update_method(self):
         """Test the update method of the Rectangle class."""
