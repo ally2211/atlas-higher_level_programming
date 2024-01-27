@@ -1,6 +1,8 @@
 import unittest
 from io import StringIO
 import sys
+import os
+import json
 from models.base import Base
 from models.square import Square
 from test_rectangle import TestRectangle
@@ -110,6 +112,43 @@ class TestSquare(TestRectangle):
         result = square.to_dictionary()
         self.assertIsInstance(result, dict, 
                               "to_dictionary should return a dictionary")
+
+    def test_save_to_file_with_none(self):
+        """Test save_to_file method with None as argument raises ValueError."""
+        with self.assertRaises(ValueError):
+            Square.save_to_file(None)
+
+    def test_save_to_file_with_empty(self):
+        """Test save_to_file method with None as argument raises ValueError."""
+        with self.assertRaises(ValueError):
+            Square.save_to_file([])
+
+    def test_save_to_file_single_rectangle(self):
+        """Test save_to_file with a single Rectangle instance."""
+        square = Square(1, 2)
+        Square.save_to_file([square])
+        filename = f"{Square.__name__}.json"
+        self.assertTrue(os.path.exists(filename))
+
+        with open(filename, 'r') as file:
+            contents = file.read()
+            data = json.loads(contents)
+            expected = [square.to_dictionary()]
+            self.assertEqual(data, expected)
+
+        # Clean up: Remove the file after test
+        if os.path.exists(filename):
+            os.remove(filename)
+
+    def test_load_from_file_no_file(self):
+        """Test load_from_file raises an error when the file does not exist."""
+        # Ensure the file does not exist
+        filename = f"{Square.__name__}.json"
+        if os.path.exists(filename):
+            os.remove(filename)
+
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
 
     def test_square_creation(self):
         """Test creating a rectangle and accessing its attributes."""
