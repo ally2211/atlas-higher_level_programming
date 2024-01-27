@@ -24,6 +24,9 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    def area(self):
+        return self.width * self.height
+    
     @property
     def width(self):
         """int: Gets or sets the width of the rectangle."""

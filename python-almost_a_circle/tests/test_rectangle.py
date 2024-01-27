@@ -75,6 +75,11 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             rect.y = -1
     
+    def test_area_calculation(self):
+        """Test the area calculation of the rectangle."""
+        rect = Rectangle(10, 5)
+        self.assertEqual(rect.area(), 50)
+    
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)
