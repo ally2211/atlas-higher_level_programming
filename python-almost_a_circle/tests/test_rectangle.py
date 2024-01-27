@@ -98,6 +98,24 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.x, 2, "The x should be updated to 2")
         self.assertEqual(rectangle.y, 3, "The y should be updated to 3")
         
+    def test_to_dictionary(self):
+        """Test the to_dictionary method."""
+        # Create a Rectangle instance
+        rect = Rectangle(10, 5, 2, 3, 1)
+        
+        # Expected dictionary
+        expected_dict = {
+            'id': 1,
+            'width': 10,
+            'height': 5,
+            'x': 2,
+            'y': 3
+        }
+        
+        # Call to_dictionary and compare with expected
+        self.assertEqual(rect.to_dictionary(), expected_dict, 
+                         "does not return correct dictionary representation")
+
     def setUp(self):
         """Redirect stdout to capture print statements."""
         self.capturedOutput = StringIO()

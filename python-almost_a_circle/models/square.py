@@ -30,7 +30,7 @@ class Square(Rectangle):
         Update the attributes of the Rectangle instance using args and kwargs.
         Args order is id, width, height, x, y.
         """
-        attrs = ['id', 'width', 'height', 'x', 'y']
+        attrs = ['id', 'size', 'x', 'y']
 
         if args:
             # Update attributes based on args order
