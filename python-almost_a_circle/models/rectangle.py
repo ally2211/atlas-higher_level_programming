@@ -29,7 +29,7 @@ class Rectangle(Base):
         calculate area of rectangle
         """
         return self.width * self.height
-    
+
     @property
     def width(self):
         """int: Gets or sets the width of the rectangle."""
