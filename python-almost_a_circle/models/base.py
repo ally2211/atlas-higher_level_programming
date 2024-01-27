@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+Module Doc: Base Class for all other classes
+"""
+
+
 class Base:
     __nb_objects = 0  # Private class attribute
 
