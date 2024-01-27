@@ -30,7 +30,37 @@ class TestSquare(TestRectangle):
         self.assertEqual(square.size, 1, "Incorrect side length")
         self.assertEqual(square.x, 2, "Incorrect x-coordinate")
         self.assertEqual(square.y, 3, "Incorrect y-coordinate")
-         
+
+    def test_non_integer_size(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(TypeError):
+            Square("1")
+
+    def test_non_integer_x(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+
+    def test_non_integer_y(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
+
+    def test_negative_size(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(ValueError):
+            Square(-1)         
+
+    def test_negative_x(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(ValueError):
+            Square(1, -2)
+
+    def test_negative_y(self):
+        """Test that passing a non-integer width."""
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3) 
+
     def test_square_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Square(10, 2, 3, 1)
