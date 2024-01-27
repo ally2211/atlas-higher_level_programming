@@ -42,6 +42,18 @@ class Rectangle(Base):
             # Print the x offset
             print(" " * self.x + "#" * self.width)
 
+    def update(self, *args):
+        """
+        Update the attributes of the Rectangle instance using args.
+        Args order is id, width, height, x, y.
+        """
+        attrs = ['id', 'width', 'height', 'x', 'y']
+
+        # Update attributes based on args order
+        for attr, value in zip(attrs, args):
+            if hasattr(self, attr):
+                setattr(self, attr, value)
+
     def __str__(self):
         """
         overriding ___str___ method
