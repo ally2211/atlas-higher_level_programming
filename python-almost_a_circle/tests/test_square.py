@@ -6,7 +6,29 @@ from models.square import Square
 
 class TestSquare(unittest.TestCase):
     """Unit tests for the Square class."""
+    
+    def test_square_existence(self):
+        """Test that a Rectangle with width=1 and height=2 exists and has correct attributes."""
+        square = Square(1)  
+        # Assuming default values for x, y, and id are acceptable
+        self.assertIsNotNone(square, "square instance should not be None")
+        self.assertEqual(square.size, 1, "square size should be 1")
         
+    def test_square_existence2(self):
+        """Test if a square object is created successfully with two parameters."""
+        square = Square(1, 2)  # Assuming the first parameter is side length and the second is x
+        self.assertIsNotNone(square, "Square instance should not be None")
+        self.assertEqual(square.size, 1, "Incorrect side length")
+        self.assertEqual(square.x, 2, "Incorrect x-coordinate")
+    
+    def test_square_existence_with_three_params(self):
+        """Test if a square object is created successfully with three parameters."""
+        square = Square(1, 2, 3)  # Assuming parameters are side length, x, and y
+        self.assertIsNotNone(square, "Square instance should not be None")
+        self.assertEqual(square.size, 1, "Incorrect side length")
+        self.assertEqual(square.x, 2, "Incorrect x-coordinate")
+        self.assertEqual(square.y, 3, "Incorrect y-coordinate")
+         
     def test_square_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Square(10, 2, 3, 1)
