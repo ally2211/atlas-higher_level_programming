@@ -9,19 +9,13 @@ from models.base import Base
 class Rectangle(Base):
     """
     Rectangle class that inherits from Base class.
-    Represents a rectangle with width, height, and optional x, y coordinates, and id.
+    Represents a rectangle with width, height,
+    and optional x, y coordinates, and id.
     """
-    
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """
         Initialize a new Rectangle instance.
-        
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-            x (int, optional): The x-coordinate of the rectangle. Defaults to 0.
-            y (int, optional): The y-coordinate of the rectangle. Defaults to 0.
-            id (int, optional): An optional id of the rectangle. Defaults to None.
         """
         super().__init__(id)  # Initialize the base class with the id
         # Set the dimensions and coordinates using the property setters
@@ -37,7 +31,8 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        self.__width = value  # Here, you might want to add validation for width
+        # Here, you might want to add validation for width
+        self.__width = value
 
     @property
     def height(self):
@@ -46,7 +41,8 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        self.__height = value  # Here, you might want to add validation for height
+        # Here, you might want to add validation for height
+        self.__height = value
 
     @property
     def x(self):
