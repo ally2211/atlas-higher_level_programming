@@ -79,7 +79,13 @@ class TestRectangle(unittest.TestCase):
         """Test the area calculation of the rectangle."""
         rect = Rectangle(10, 5)
         self.assertEqual(rect.area(), 50)
-       
+
+    def test_str_method(self):
+        """Test the string representation of a Rectangle instance."""
+        rect = Rectangle(3, 2, 1, 1, 123)  # Create a Rectangle instance
+        expected_str = '[Rectangle] (123) 1/1 - 3/2'
+        self.assertEqual(rect.__str__(), expected_str)
+
     def test_rectangle_creation(self):
         """Test creating a rectangle and accessing its attributes."""
         r = Rectangle(10, 5, 2, 3, 1)

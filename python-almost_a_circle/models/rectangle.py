@@ -39,6 +39,12 @@ class Rectangle(Base):
                 print('#', end='')
             print()  # Newline after each row
 
+    def __str__(self):
+        """
+        overriding ___str___ method
+        """
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id, self.x, self.y, self.width, self.height)
+
     @property
     def width(self):
         """int: Gets or sets the width of the rectangle."""
