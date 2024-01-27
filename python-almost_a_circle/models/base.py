@@ -15,7 +15,10 @@ class Base:
         function Desc:  init
         """
         if id is not None:
-            self.id = id  # Assign the provided id to the public instance attribute
+            # Assign the provided id to the public instance attribute
+            self.id = id
         else:
-            Base.__nb_objects += 1  # Increment the private class attribute
-            self.id = Base.__nb_objects  # Assign the incremented value to the public instance attribute
+            # Increment the private class attribute
+            Base.__nb_objects += 1
+            # Assign the incremented value to the public instance attribute
+            self.id = Base.__nb_objects
