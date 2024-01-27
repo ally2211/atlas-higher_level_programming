@@ -18,6 +18,11 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
+    @classmethod
+    def create(cls, **kwargs):
+        """Factory method to create a new Square instance"""
+        return cls(**kwargs)
+
     def __str__(self):
         """
         Override the __str__ of the Square.

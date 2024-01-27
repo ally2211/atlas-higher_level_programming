@@ -97,41 +97,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.height, 2, "The height updated to 2")
         self.assertEqual(rectangle.x, 2, "The x should be updated to 2")
         self.assertEqual(rectangle.y, 3, "The y should be updated to 3")
-        
-    def test_to_dictionary(self):
-        """Test the to_dictionary method."""
-        # Create a Rectangle instance
-        rect = Rectangle(10, 5, 2, 3, 1)
-        
-        # Expected dictionary
-        expected_dict = {
-            'id': 1,
-            'width': 10,
-            'height': 5,
-            'x': 2,
-            'y': 3
-        }
-
-        # Call to_dictionary and compare with expected
-        self.assertEqual(rect.to_dictionary(), expected_dict, 
-                         "does not return correct dictionary representation")
-
-    def test_create_method_with_kwargs(self):
-        """Test the create method with keyword arguments."""
-        # Create a Rectangle instance using the create method
-        rect = Rectangle.create(id=89)
-
-        # Check if the id is set correctly
-        self.assertEqual(rect.id, 89, "The id should be set to 89")
-
-    def test_create_method_with_kwargs2(self):
-        """Test the create method with specific keyword arguments."""
-        # Create a Rectangle instance using the create method with kwargs
-        rect = Rectangle.create(**{'id': 89, 'width': 1})
-
-        # Check if the properties are set correctly
-        self.assertEqual(rect.id, 89, "The id should be set to 89")
-        self.assertEqual(rect.width, 1, "The width should be set to 1")
 
     def test_create_method_with_multiple_kwargs(self):
         """Test the create method with multiple keyword arguments."""

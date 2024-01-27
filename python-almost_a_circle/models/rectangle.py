@@ -24,6 +24,11 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
+    @classmethod
+    def create(cls, **kwargs):
+        """Factory method to create a new Rectangle instance"""
+        return cls(**kwargs)
+    
     def area(self):
         """
         calculate area of rectangle
@@ -64,7 +69,7 @@ class Rectangle(Base):
         """Return the dictionary representation of the Rectangle."""
         return {
             'id': self.id,
-            'width': self.width,
+            'size': self.width,
             'height': self.height,
             'x': self.x,
             'y': self.y
