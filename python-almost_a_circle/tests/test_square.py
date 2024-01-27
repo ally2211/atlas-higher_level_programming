@@ -3,6 +3,8 @@ from io import StringIO
 import sys
 from models.base import Base
 from models.square import Square
+from test_rectangle import TestRectangle
+
 
 class TestSquare(TestRectangle):
     """Unit tests for the Square class."""
