@@ -5,7 +5,9 @@ from base import Base
 
 
 class TestBase(unittest.TestCase):
-    
+    """
+    Class test Base
+    """
     def test_id_assigned_explicitly(self):
         """Test if the id is assigned correctly when explicitly provided."""
         obj = Base(5)
