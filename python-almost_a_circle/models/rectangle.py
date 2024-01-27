@@ -2,7 +2,7 @@
 """
 Module Doc: Rectangle Class
 """
-# Assuming the Base class is defined in models/base.py
+# Base class is defined in models/base.py
 from models.base import Base
 
 
