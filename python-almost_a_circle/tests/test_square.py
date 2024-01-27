@@ -81,6 +81,27 @@ class TestSquare(TestRectangle):
         self.assertEqual(square.x, 2, "The x- should be updated to 2")
         self.assertEqual(square.y, 3, "The y- should be updated to 3")
 
+    def test_create_method_with_multiple_kwargs(self):
+        """Test the create method with multiple keyword arguments."""
+        # Create a Square instance using the create method with kwargs
+        square = Square.create(**{'id': 89, 'size': 1, 'x': 3})
+
+        # Check if the properties are set correctly
+        self.assertEqual(square.id, 89, "The id should be set to 89")
+        self.assertEqual(square.size, 1, "The width should be set to 1")
+        self.assertEqual(square.x, 3, "The x position should be set to 3")
+
+    def test_create_method_with_full_kwargs(self):
+        """Test the create method with a full set of keyword arguments."""
+        # Create a Rectangle instance using the create method with kwargs
+        square = Square.create(**{'id': 89, 'size': 1, 'x': 3, 'y': 4})
+
+        # Check if the properties are set correctly
+        self.assertEqual(square.id, 89, "The id should be set to 89")
+        self.assertEqual(square.size, 1, "The size should be set to 1")
+        self.assertEqual(square.x, 3, "The x position should be set to 3")
+        self.assertEqual(square.y, 4, "The y position should be set to 4")
+
     def test_to_dictionary_exists(self):
         """Test that the to_dictionary method exists."""
         square = Square(10, 2, 3, 1)
