@@ -22,7 +22,8 @@ class Square(Rectangle):
         """
         Override the __str__ of the Square.
         """
-        return '[Square] ({}) {}/{} - {}'.format(self.id, self.x, self.y, self.size)
+        return ('[Square] ({}) {}/{} - {}'
+                .format(self.id, self.x, self.y, self.size))
 
     @property
     def size(self):
