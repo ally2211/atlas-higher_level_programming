@@ -4,6 +4,7 @@ Module Doc: Base Class for all other classes
 """
 import json
 
+
 class Base:
     """
     class Doc: Base Class
