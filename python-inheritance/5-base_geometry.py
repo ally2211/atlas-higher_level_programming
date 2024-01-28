@@ -3,6 +3,7 @@
 class doc:  determine if same object
 """
 
+
 class BaseGeometry:
     """
     Class doc:  Empty BaseGeometry class
