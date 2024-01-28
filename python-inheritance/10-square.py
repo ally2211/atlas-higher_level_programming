@@ -15,4 +15,8 @@ class Square(Rectangle):
         """
         Initialize a new Square instance.
         """
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size <= 0:
+            raise ValueError("size must be greater than 0")
         super().__init__(size, size)
