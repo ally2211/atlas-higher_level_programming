@@ -1,0 +1,3 @@
+>>> bg = __import__('7-base_geometry').BaseGeometry
+>>> bg.integer_validator("name", "John")
+TypeError: name must be an integer
