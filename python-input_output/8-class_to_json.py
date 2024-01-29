@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Module Doc:  given an instant of a class return dictionary
+"""
 
 def class_to_json(obj):
     """
