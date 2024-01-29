@@ -25,8 +25,3 @@ class Student:
             'last_name': self.last_name,
             'age': self.age
         }
-
-# Example usage
-student = Student("John", "Doe", 25)
-student_json = student.to_json()
-print(student_json)
