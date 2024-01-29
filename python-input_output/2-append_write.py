@@ -9,4 +9,5 @@ def append_write(filename="", text=""):
     Function Doc: Append text to a file.
     """
     with open(filename, "a", encoding="utf-8") as f:
-        f.write(text + "\n")
+        characters_written = f.write(text + "\n")
+    return characters_written - 1
