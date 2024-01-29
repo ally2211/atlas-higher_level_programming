@@ -3,12 +3,18 @@
 Module Doc: covert from json
 """
 import json
-
+import os
 
 def load_from_json_file(filename):
     """
     load from json to a file
     """
-    with open(filename, 'r') as file:
-        my_list = json.load(file)
-    return my_list
+    if os.path.exists(filename) and os.path.getsize(filename) > 0:
+        with open(filename, 'r') as file:
+            try:
+                return json.load(file)
+            except json.JSONDecodeError:
+                return []
+    else:
+        return []
+
