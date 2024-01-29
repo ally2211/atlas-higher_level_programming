@@ -17,4 +17,3 @@ def load_from_json_file(filename):
                 return []
     else:
         return []
-
