@@ -2,6 +2,7 @@
 # test_base.py
 import unittest
 from models.base import Base
+from models import storage
 
 
 class TestBase(unittest.TestCase):
