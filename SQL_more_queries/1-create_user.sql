@@ -7,7 +7,7 @@ EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
 
 -- Grant privileges only if the user was just created
-SET @grant_privileges_query = IF(@user_exists = 0, 'GRANT ALL PRIVILEGES ON *.* TO \'user_0d_1\'@\'localhost\' WITH GRANT OPTION;', 'SELECT \'User already exists, no privileges granted\' status;');
+SET @grant_privileges_query = IF(@user_exists = 0, 'GRANT ALL PRIVILEGES ON *.* TO \'user_0d_1\'@\'localhost\';', 'SELECT \'User already exists, no privileges granted\' status;');
 PREPARE stmt FROM @grant_privileges_query;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
