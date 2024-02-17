@@ -21,9 +21,19 @@ def list_states(username, password, dbname, state):
     cur = db.cursor()
 
     # Execute the query using parameterized SQL statement
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    #query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+        
+    #Directly using format with user input for SQL queries 
+    # is not recommended due to the risk of SQL injection.
+    # However, for educational purposes or specific cases 
+    # where SQL injection risk is managed by other means, 
+    # you can use string formatting to include variables in your query.
+    
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state.replace("'", "''"))
+    print(query);
+    
+    # Execute the query
     cur.execute(query, (state,))
-
     # Fetch and print all rows that match the query
     for row in cur.fetchall():
         print(row)
@@ -38,4 +48,8 @@ def list_states(username, password, dbname, state):
 
 if __name__ == "__main__":
     if len(sys.argv) == 5:
-        list_states(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+        username = sys.argv[1]
+        password = sys.argv[2]
+        dbname = sys.argv[3]
+        state = sys.argv[4]
+        list_states(username, password, dbname, state)
