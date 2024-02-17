@@ -28,12 +28,14 @@ def list_states(username, password, dbname, state):
     # However, for educational purposes or specific cases 
     # where SQL injection risk is managed by other means, 
     # you can use string formatting to include variables in your query.
-    
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state.replace("'", "''"))
-    print(query);
+    sanitized_state = state.replace("'", "''")
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(sanitized_state)
+    #print(query);
     
     # Execute the query
-    cur.execute(query, (state,))
+    #cur.execute(query, (state,))
+    cur.execute(query)
+    
     # Fetch and print all rows that match the query
     for row in cur.fetchall():
         print(row)
