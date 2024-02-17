@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.orm import sessionmaker, declarative_base
 """
 This module defines the State class using SQLAlchemy ORM
 to represent the 'states' table in a database.
 """
+from sqlalchemy import create_engine, Column, String, Integer
+from sqlalchemy.orm import sessionmaker, declarative_base
 username = 'root'
 password = ''
 host = 'localhost'
