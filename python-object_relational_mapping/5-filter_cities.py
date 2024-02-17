@@ -31,12 +31,12 @@ def list_states(username, password, dbname, state):
 
     # Fetch all rows that match the query
     rows = cur.fetchall()
-    
+
     # Convert rows to a string with comma separation
     names_list = []
     for row in rows:
         names_list.append(row[0])
-    
+
     # Convert the list of names into a comma-separated string
     result = ', '.join(names_list)
     print(result)
