@@ -26,14 +26,13 @@ class State(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(128), nullable=False)
 
-
 # Example usage
 if __name__ == "__main__":
     # Construct the connection string
     cstring = f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}'
 
-    # Create the engine with echo set to True
-    engine = create_engine(cstring, echo=True)
+    # Create the engine with echo set to False for no logging
+    engine = create_engine(cstring, echo=False)
 
     # Create all tables that don't already exist in the database
     Base.metadata.create_all(engine)
