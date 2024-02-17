@@ -30,7 +30,7 @@ def list_states(username, password, dbname, state):
     # you can use string formatting to include variables in your query.
     sanitized_state = state.replace("'", "''")
     query = "SELECT * FROM states " \
-            "WHERE name = '{}' " \
+            "WHERE LOWER(name) = LOWER('{}') " \
             "ORDER BY id ASC".format(sanitized_state)
     # print(query);
 
