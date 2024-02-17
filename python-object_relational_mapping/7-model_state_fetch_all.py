@@ -1,55 +1,49 @@
 #!/usr/bin/python3
 """
-This module defines the State class using SQLAlchemy ORM
-to represent the 'states' table in a database.
+A script that lists all State objects from the database hbtn_0e_6_usa
 """
-from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.orm import sessionmaker, declarative_base, relationship, joinedload
 
-username = 'root'
-password = ''
-host = 'localhost'
-port = '3306'
-database = 'hbtn_0e_6_usa'
-
-# Define the ORM model
-Base = declarative_base()
+import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
 
-class State(Base):
+def list_states(username, password, dbname):
     """
-    A State class that maps to the 'states' table in the database.
+    Connects to a database and lists all State objects from the database.
     """
-    # Specifies the name of the table in the database
-    __tablename__ = 'states'
-    # Define the columns of the table
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(128), nullable=False)
 
-# Example usage
-if __name__ == "__main__":
     # Construct the connection string
-    cstring = f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}'
+    cstring = f'mysql+pymysql://{username}:{password}@localhost/{dbname}'
 
-    # Create the engine with echo set to False for no logging
-    engine = create_engine(cstring, echo=False)
+    # Create the engine
+    engine = create_engine(cstring)
 
-    # Create all tables that don't already exist in the database
-    Base.metadata.create_all(engine)
+    # Bind the engine to the Base metadata
+    Base.metadata.bind = engine
 
-    # Create a sessionmaker bound to the engine
-    Session = sessionmaker(bind=engine)
+    # Create a Session
+    DBSession = sessionmaker(bind=engine)
+    session = DBSession()
 
-    # Instantiate a session
-    session = Session()
+    # Query all states
+    states = session.query(State).order_by(State.id).all()
 
-    # Query all records from the table
-    records = session.query(State).order_by(State.id).all()
-    
-    # Print the queried records along with the associated gifts
-    for record in records:
-        print(f"{record.id}: {record.name}")
+    # Print states
+    for state in states:
+        print(f"{state.id}: {state.name}")
 
-    # nothing to commit
     # Close the session
     session.close()
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 4:
+        username = sys.argv[1]
+        password = sys.argv[2]
+        dbname = sys.argv[3]
+        list_states(username, password, dbname)
+    else:
+        print("Usage: ./list_states.py <mysql username>"
+              "<mysql password> <database name>")
