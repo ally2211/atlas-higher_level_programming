@@ -20,7 +20,7 @@ def list_states(username, password, dbname, state):
     cur = db.cursor()
 
     # Execute the query using parameterized SQL statement
-    query = "SELECT cities.id, cities.name, states.name " \
+    query = "SELECT cities.name " \
             "FROM cities INNER JOIN states ON " \
             "cities.state_id = states.id " \
             "WHERE LOWER(states.name) = LOWER(%s)" \
