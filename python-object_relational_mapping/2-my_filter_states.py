@@ -6,11 +6,14 @@ A script that lists all states from the database hbtn_0e_0_usa.
 import MySQLdb
 import sys
 
+
 def sanitize_state(state):
     """
-    Attempts to sanitize the state input by escaping single quotes. This is a rudimentary form of sanitization.
+    sanitize the state input by escaping single quotes.
+    This is a rudimentary form of sanitization.
     """
     return state.replace("'", "''")
+
 
 def list_states(username, password, dbname, state):
     """
@@ -36,7 +39,7 @@ def list_states(username, password, dbname, state):
     # sanitized_state = state.replace("'", "''")
     # Sanitize the input
     sanitized_state = sanitize_state(state)
-    
+
     query = "SELECT * FROM states " \
             "WHERE LOWER(name) = LOWER('{}') " \
             "ORDER BY id ASC".format(sanitized_state)
