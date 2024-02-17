@@ -2,7 +2,6 @@
 """
 A script that lists all states from the database hbtn_0e_0_usa.
 """
-
 import MySQLdb
 import sys
 
@@ -21,26 +20,11 @@ def list_states(username, password, dbname, state):
     cur = db.cursor()
 
     # Execute the query using parameterized SQL statement
-    query = "SELECT * FROM states WHERE LOWER(name) = LOWER(%s) ORDER BY id ASC"
-
-    # Directly using format with user input for SQL queries
-    # is not recommended due to the risk of SQL injection.
-    # However, for educational purposes or specific cases
-    # where SQL injection risk is managed by other means,
-    # you can use string formatting to include variables in your query.
-    # sanitized_state = state.replace("'", "''")
-    # Sanitize the input
-    # sanitized_state = sanitize_state(state)
-    """
-    query = "SELECT * FROM states " \
-            "WHERE LOWER(name) = LOWER('{}') " \
-            "ORDER BY id ASC".format(sanitized_state)
-    """
-    # print(query);
+    query = "SELECT * FROM states WHERE LOWER(name) = " \
+            "LOWER(%s) ORDER BY id ASC"
 
     # Execute the query
     cur.execute(query, (state,))
-    # cur.execute(query)
 
     # Fetch and print all rows that match the query
     for row in cur.fetchall():
