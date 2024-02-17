@@ -4,7 +4,8 @@ This module defines the State class using SQLAlchemy ORM
 to represent the 'states' table in a database.
 """
 from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base, relationship, joinedload
+
 username = 'root'
 password = ''
 host = 'localhost'
@@ -43,8 +44,13 @@ if __name__ == "__main__":
     # Instantiate a session
     session = Session()
 
-    # Commit the transaction
-    session.commit()
+    # Query all records from the table
+    records = session.query(State).all()
+    
+    # Print the queried records along with the associated gifts
+    for record in records:
+        print(f"{record.id}: {record.name}")
 
+    # nothing to commit
     # Close the session
     session.close()
