@@ -44,7 +44,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Query all records from the table
-    records = session.query(State).all()
+    records = session.query(State).order_by(State.id).all()
     
     # Print the queried records along with the associated gifts
     for record in records:
