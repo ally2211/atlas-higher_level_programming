@@ -30,7 +30,7 @@ def list_states(username, password, dbname, state):
     states = session.query(State)\
         .filter(State.name.like(f'%{state}%'))\
         .order_by(State.id)\
-        .all()
+        .first()
 
     # Print states
     if states:
