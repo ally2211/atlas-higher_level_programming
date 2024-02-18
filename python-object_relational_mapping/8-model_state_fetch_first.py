@@ -34,13 +34,9 @@ def list_states(username, password, dbname):
     print(f"{first_state.id}: {first_state.name}")
 
 
-
 if __name__ == "__main__":
     if len(sys.argv) == 4:
         username = sys.argv[1]
         password = sys.argv[2]
         dbname = sys.argv[3]
         list_states(username, password, dbname)
-    else:
-        print("Usage: ./list_states.py <mysql username>"
-              "<mysql password> <database name>")
