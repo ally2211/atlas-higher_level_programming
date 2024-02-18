@@ -14,7 +14,7 @@ def list_states(username, password, dbname):
     """
 
     # Construct the connection string
-    cstring = f'mysql+pymysql://{username}:{password}@localhost/{dbname}'
+    cstring = f'mysql+mysqldb://{username}:{password}@localhost/{dbname}'
 
     # Create the engine
     engine = create_engine(cstring)
@@ -28,10 +28,10 @@ def list_states(username, password, dbname):
 
     # Step 1: Query for the specific State object you want to update
     target_state = session.query(State).filter(State.id == 2).first()
-    
+
     if target_state:
         # Step 2: Modify its attributes to the new values
-        target_state.name = 'New Mexico'  # Replace 'NewStateName' with the new name you want to assign
+        target_state.name = 'New Mexico'
 
         # Step 3: Commit the session to save changes to the database
         session.commit()
