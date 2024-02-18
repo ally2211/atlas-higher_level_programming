@@ -30,7 +30,7 @@ class City(Base):
 # Example usage
 if __name__ == "__main__":
     # Construct the connection string
-    cstring = f'mysql+pymysql://{username}:{password}@{host}:{port}/{database}'
+    cstring = f'mysql+mysqldb://{username}:{password}@{host}:{port}/{database}'
 
     # Create the engine with echo set to True
     engine = create_engine(cstring, echo=True)
