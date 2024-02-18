@@ -26,6 +26,7 @@ class City(Base):
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
     state = relationship("State", backref="cities")
 
+
 # Example usage
 if __name__ == "__main__":
     # Construct the connection string
