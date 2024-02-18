@@ -30,9 +30,9 @@ def list_states(username, password, dbname):
 
     # Query all cities
     cities = session.query(State, City)\
-            .join(City, State.id == City.state_id)\
-            .order_by(City.id)\
-            .all()
+        .join(City, State.id == City.state_id)\
+        .order_by(City.id)\
+        .all()
 
     # Print cities and state
     for state, city in cities:
