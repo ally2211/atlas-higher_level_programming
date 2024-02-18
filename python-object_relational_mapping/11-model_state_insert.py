@@ -27,7 +27,7 @@ def list_states(username, password, dbname):
     session = DBSession()
 
     # add a state
-    new_state = State(name="Louisiana") 
+    new_state = State(name="Louisiana")
 
     # Add the new state to the session
     session.add(new_state)
