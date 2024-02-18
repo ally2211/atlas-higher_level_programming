@@ -3,30 +3,28 @@
 This module defines the State class using SQLAlchemy ORM
 to represent the 'states' table in a database.
 """
-from sqlalchemy import create_engine, Column, String, Integer
-from sqlalchemy.orm import sessionmaker, declarative_base
-#from model_city import City
+from sqlalchemy import create_engine, Column, String, Integer, ForeignKey
+from sqlalchemy.orm import sessionmaker, declarative_base, relationship
+from model_state import Base, State
 
 username = 'root'
 password = ''
 host = 'localhost'
 port = '3306'
-database = 'hbtn_0e_6_usa'
-
-# Define the ORM model
-Base = declarative_base()
+database = 'hbtn_0e_14_usa'
 
 
-class State(Base):
+class City(Base):
     """
     A State class that maps to the 'states' table in the database.
     """
     # Specifies the name of the table in the database
-    __tablename__ = 'states'
+    __tablename__ = 'cities'
     # Define the columns of the table
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(128), nullable=False)
-    #cities = relationship("City", back_populates="state")
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state = relationship("State", backref="cities")
 
 # Example usage
 if __name__ == "__main__":
