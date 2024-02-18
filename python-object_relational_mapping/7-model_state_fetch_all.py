@@ -35,7 +35,7 @@ def list_states(username, password, dbname):
         print(f"{state.id}: {state.name}")
 
     # Close the session
-    session.close()
+    # session.close()
 
 
 if __name__ == "__main__":
