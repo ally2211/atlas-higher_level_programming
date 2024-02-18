@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def list_states(username, password, dbname, state):
+def list_states(username, password, dbname):
     """
     Lists all states from the database.
     """
@@ -26,27 +26,25 @@ def list_states(username, password, dbname, state):
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
 
-    # Query for specific state
-    states = session.query(State)\
-        .filter(State.name.like(f'%{state}%'))\
-        .order_by(State.id)\
-        .all()
+    # add a state
+    new_state = State(name="Louisiana") 
 
-    # Print states
-    if states:
-        for state in states:
-            print(f"{state.id}")
-    else:
-        print("Not found")
+    # Add the new state to the session
+    session.add(new_state)
+
+    # Commit the session to insert the new state into the database
+    session.commit()
+
+    # Optionally, print the id of the new state
+    print(f"{new_state.id}")
 
     # Close the session
     session.close()
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 5:
+    if len(sys.argv) == 4:
         username = sys.argv[1]
         password = sys.argv[2]
         dbname = sys.argv[3]
-        state = sys.argv[4]
-        list_states(username, password, dbname, state)
+        list_states(username, password, dbname)
