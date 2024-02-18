@@ -15,7 +15,7 @@ def list_states(username, password, dbname):
     """
 
     # Construct the connection string
-    cstring = f'mysql+pymysql://{username}:{password}@localhost/{dbname}'
+    cstring = f'mysql+mysqldb://{username}:{password}@localhost/{dbname}'
 
     # Create the engine
     engine = create_engine(cstring)
@@ -33,8 +33,6 @@ def list_states(username, password, dbname):
     # Print first state
     print(f"{first_state.id}: {first_state.name}")
 
-    # Close the session
-    session.close()
 
 
 if __name__ == "__main__":

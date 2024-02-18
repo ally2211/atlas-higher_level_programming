@@ -15,7 +15,7 @@ def list_states(username, password, dbname):
     """
 
     # Construct the connection string
-    cstring = f'mysql+pymysql://{username}:{password}@localhost/{dbname}'
+    cstring = f'mysql+mysqldb://{username}:{password}@localhost/{dbname}'
 
     # Create the engine
     engine = create_engine(cstring)
