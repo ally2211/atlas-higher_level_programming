@@ -26,14 +26,16 @@ def list_states(username, password, dbname):
     # Create a Session
     DBSession = sessionmaker(bind=engine)
     session = DBSession()
-  
+
     # States with a name attribute that contain the letter 'a'
-    states_with_a = session.query(State).filter(State.name.like('%a%')).order_by(State.id).all()
+    states_with_a = session.query(State)\
+        .filter(State.name.like('%a%'))\
+        .order_by(State.id)\
+        .all()
 
     # Print states
     for state in states_with_a:
         print(f"{state.id}: {state.name}")
-
 
 
 if __name__ == "__main__":
