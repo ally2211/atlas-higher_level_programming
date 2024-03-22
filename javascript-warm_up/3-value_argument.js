@@ -2,12 +2,11 @@
 // Subtracting the first two elements
 // which are the path and file
 
-const numberOfArguments = process.argv.length - 2;
+let counter = 0;
 
-if (numberOfArguments === 1) {
-  console.log('Argument found');
-} else if (numberOfArguments > 1) {
-  console.log('Arguments found');
-} else {
-  console.log('No argument');
+
+if (process.argv[2]) {
+  console.log(process.argv[2]);
+} else if (!process.argv[2]) {
+  console.log('No Argument');
 }
