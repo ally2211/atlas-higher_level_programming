@@ -1,11 +1,10 @@
 #!/usr/bin/node
 //  print() that prints the rectangle using the character X
-class Rectangle {
-  constructor (w) {
-    if (Number.isInteger(w) && w > 0) {
-      this.width = w;
-      this.height = w;
-    }
+const Rectangle = require('./4-rectangle');
+class Square extends Rectangle {
+  constructor (sideLength) {
+    // A square is a rectangle with equal width and height
+    super(sideLength, sideLength);
   }
 
   print () {
@@ -33,6 +32,7 @@ class Rectangle {
     this.height = temp;
   }
 }
+
 // Exporting the class if you're using Node.js
 // and want it to be accessible from other files
-module.exports = Rectangle;
+module.exports = Square;
