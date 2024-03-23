@@ -1,6 +1,5 @@
 #!/usr/bin/node
 //  print() that prints the rectangle using the character X
-/* eslint-disable no-unused-vars */
 class Rectangle {
   constructor (w, h) {
     if (Number.isInteger(w) && Number.isInteger(h) && w > 0 && h > 0) {
@@ -9,7 +8,6 @@ class Rectangle {
     }
   }
 
-  /* eslint-enable no-unused-vars */
   print () {
     if (this.width === 0 || this.height === 0) {
       console.log('Missing size');
@@ -23,8 +21,18 @@ class Rectangle {
       }
     }
   }
-}
 
+  double () {
+    this.width *= 2;
+    this.height *= 2;
+  }
+
+  rotate () {
+    const temp = this.width;
+    this.width = this.height;
+    this.height = temp;
+  }
+}
 // Exporting the class if you're using Node.js
 // and want it to be accessible from other files
 module.exports = Rectangle;
