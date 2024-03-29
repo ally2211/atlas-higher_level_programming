@@ -14,29 +14,25 @@ if (!webpage) {
 }
 
 // clear the file
-try {
 fs.writeFileSync(filewrite, '');
-} catch (err) {
-console.error(err);
-  }
 
 http.get(webpage, (response) => {
-  let data = '';
-  // A chunk of data has been received.
-  response.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  // The whole response has been received. Print out the result.
-  response.on('end', () => {
-    console.log(data);
-    fs.writeFile(filewrite, data, 'utf8', (err) => {
-      if (err) {
-        console.error(err);
-      }
-      // console.log('File has been written successfully');
+    let data = '';
+    // A chunk of data has been received.
+    response.on('data', (chunk) => {
+      data += chunk;
     });
+  
+    // The whole response has been received. Print out the result.
+    response.on('end', () => {
+      console.log(data);
+      fs.writeFile(filewrite, data, 'utf8', (err) => {
+        if (err) {
+          console.error(err);
+        }
+        // console.log('File has been written successfully');
+      });
+    });
+  }).on('error', (err) => {
+    console.log('Error: ' + err.message);
   });
-}).on('error', (err) => {
-  console.log('Error: ' + err.message);
-});
