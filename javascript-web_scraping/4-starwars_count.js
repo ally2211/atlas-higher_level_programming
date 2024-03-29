@@ -11,7 +11,7 @@ const url = `https://swapi-api.hbtn.io/api/people/${charID}/`;
 
 request(url, (error, response, body) => {
   if (error) {
-    console.error('Error:', error);
+    console.error(error);
     return;
   }
   try {
@@ -21,6 +21,6 @@ request(url, (error, response, body) => {
     console.log(numberOfFilms);
     // console.log(data.films); // Print the title of the movie
   } catch (parseError) {
-    console.error('Error parsing JSON:', parseError);
+    console.error(parseError);
   }
 });
