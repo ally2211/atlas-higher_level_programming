@@ -18,7 +18,7 @@ request(webpage, (error, response, body) => {
   if (response && response.statusCode === 200) {
     fs.writeFile(filePath, body, 'utf8', (err) => {
       if (err) {
-        //Failed to write file:
+        // Failed to write file:
         console.error(err);
       }
     });
