@@ -13,6 +13,13 @@ if (!webpage) {
   process.exit(1);
 }
 
+// clear the file
+try {
+fs.writeFileSync(filewrite, '');
+} catch (err) {
+console.error(err);
+  }
+
 http.get(webpage, (response) => {
   let data = '';
   // A chunk of data has been received.
