@@ -53,7 +53,7 @@ request(webpage, (error, response, body) => {
         }
       }
 
-      // console.log(currentUser + ':' + runningCount);
+      //console.log(currentUser + ':' + runningCount);
       keys.push(currentUser);
       values.push(runningCount);
       runningCount = 0; // Reset for the next user
