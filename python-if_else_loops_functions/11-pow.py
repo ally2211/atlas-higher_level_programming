@@ -1,15 +1,32 @@
 #!/usr/bin/python3
+from decimal import Decimal, getcontext, localcontext
+
+from decimal import Decimal, getcontext
+
+# Set the precision globally
+getcontext().prec = 50
 
 def pow(a, b):
+    a = Decimal(a)
+    b = Decimal(b)
+
     if b == 0:
-        return 1
-    elif b < 0:
+        return Decimal(1)  # Any number to the zero power is 1
+    if b < 0:
         a = 1 / a  # Invert the base for negative exponents
-        b = abs(b)  # Use the absolute value of the exponent
+        b = -b  # Make exponent positive
 
-    result = 1
+    result = Decimal(1)
+    is_negative = a < 0 and (b % 2 != 0)  # Check if the result should be negative
 
-    for _ in range(b):
-        result *= a
+    # If the exponent is not an integer, use the Decimal's `**` operator to handle fractional powers
+    if not b % 1 == 0:
+        result = a ** b
+    else:
+        for _ in range(int(b)):
+            result *= a
 
-    return round(result, 17)
+    if is_negative:
+        result = -result  # Adjust the sign if needed
+
+    return result
