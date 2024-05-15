@@ -1,12 +1,10 @@
+#!/usr/bin/python3
+"""Unittest for max_integer([..])
+"""
 import unittest
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
-from max_integer import 6-max_integer
+max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
-
     def test_max_end(self):
         """Test when max integer is at the end"""
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
@@ -43,4 +41,3 @@ class TestMaxInteger(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
